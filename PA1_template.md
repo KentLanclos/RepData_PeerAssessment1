@@ -23,7 +23,7 @@ colnames(numsteps)<- c("Date", "Steps")
 hist(numsteps$Steps,breaks=5,xlab="Steps",main="Number_of_Steps_per_Day")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
+![](unnamed-chunk-2-1.png)<!-- -->
 
 ```r
 as.integer(mean(numsteps$Steps))
@@ -51,7 +51,7 @@ p <- ggplot(stepsint, aes(x=interval, y=Avg), xlab = "Interval", ylab="Average_N
 p + geom_line()+xlab("Interval")+ylab("Average_Number_of_Steps")+ggtitle("Average_Number_of Steps_per_Interval")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
+![](unnamed-chunk-3-1.png)<!-- -->
 
 ```r
 stepsmax <- max(stepsint$Avg)
@@ -104,7 +104,7 @@ hist(numsteps$Steps, breaks=5, xlab="Steps", main = "Steps_per_Day_with_No_NAs",
 legend("topright", c("Imputed Values", "No NA Data"), fill=c("red", "blue") )
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+![](unnamed-chunk-4-1.png)<!-- -->
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
@@ -115,5 +115,5 @@ stepsint2 <- ddply(mrgdata, .(interval, Category), summarize, Avg = mean(steps))
 xyplot(Avg~interval|Category, data=stepsint2, type="l",  layout = c(1,2), main="Average_Steps_per_Interval_Based_on_Category",ylab="Average_Number_of_Steps", xlab="Interval")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
+![](unnamed-chunk-5-1.png)<!-- -->
 
